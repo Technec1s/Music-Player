@@ -36,10 +36,17 @@
             this.Music = new System.Windows.Forms.ListBox();
             this.ChooseMusic = new System.Windows.Forms.Button();
             this.axWindowsMediaPlayerMusic = new AxWMPLib.AxWindowsMediaPlayer();
+            this.btn_next = new System.Windows.Forms.Button();
+            this.btn_play = new System.Windows.Forms.Button();
+            this.btn_pause = new System.Windows.Forms.Button();
+            this.btn_stop = new System.Windows.Forms.Button();
+            this.track_volume = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayerMusic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.track_volume)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPanel
@@ -113,8 +120,78 @@
             this.axWindowsMediaPlayerMusic.Location = new System.Drawing.Point(12, 68);
             this.axWindowsMediaPlayerMusic.Name = "axWindowsMediaPlayerMusic";
             this.axWindowsMediaPlayerMusic.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayerMusic.OcxState")));
-            this.axWindowsMediaPlayerMusic.Size = new System.Drawing.Size(597, 356);
+            this.axWindowsMediaPlayerMusic.Size = new System.Drawing.Size(597, 473);
             this.axWindowsMediaPlayerMusic.TabIndex = 3;
+            // 
+            // btn_next
+            // 
+            this.btn_next.BackColor = System.Drawing.SystemColors.Info;
+            this.btn_next.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.btn_next.Location = new System.Drawing.Point(35, 400);
+            this.btn_next.Name = "btn_next";
+            this.btn_next.Size = new System.Drawing.Size(103, 38);
+            this.btn_next.TabIndex = 4;
+            this.btn_next.Text = "Next";
+            this.btn_next.UseVisualStyleBackColor = false;
+            this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
+            // 
+            // btn_play
+            // 
+            this.btn_play.BackColor = System.Drawing.SystemColors.Info;
+            this.btn_play.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.btn_play.Location = new System.Drawing.Point(159, 400);
+            this.btn_play.Name = "btn_play";
+            this.btn_play.Size = new System.Drawing.Size(103, 38);
+            this.btn_play.TabIndex = 5;
+            this.btn_play.Text = "Play";
+            this.btn_play.UseVisualStyleBackColor = false;
+            this.btn_play.Click += new System.EventHandler(this.btn_play_Click);
+            // 
+            // btn_pause
+            // 
+            this.btn_pause.BackColor = System.Drawing.SystemColors.Info;
+            this.btn_pause.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.btn_pause.Location = new System.Drawing.Point(284, 400);
+            this.btn_pause.Name = "btn_pause";
+            this.btn_pause.Size = new System.Drawing.Size(103, 38);
+            this.btn_pause.TabIndex = 6;
+            this.btn_pause.Text = "Pause";
+            this.btn_pause.UseVisualStyleBackColor = false;
+            this.btn_pause.Click += new System.EventHandler(this.btn_pause_Click);
+            // 
+            // btn_stop
+            // 
+            this.btn_stop.BackColor = System.Drawing.SystemColors.Info;
+            this.btn_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.btn_stop.Location = new System.Drawing.Point(405, 400);
+            this.btn_stop.Name = "btn_stop";
+            this.btn_stop.Size = new System.Drawing.Size(103, 38);
+            this.btn_stop.TabIndex = 7;
+            this.btn_stop.Text = "Stop";
+            this.btn_stop.UseVisualStyleBackColor = false;
+            this.btn_stop.Click += new System.EventHandler(this.btn_stop_Click);
+            // 
+            // track_volume
+            // 
+            this.track_volume.Location = new System.Drawing.Point(540, 82);
+            this.track_volume.Maximum = 100;
+            this.track_volume.Name = "track_volume";
+            this.track_volume.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.track_volume.Size = new System.Drawing.Size(45, 313);
+            this.track_volume.TabIndex = 8;
+            this.track_volume.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.track_volume.Scroll += new System.EventHandler(this.track_volume_Scroll);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.label1.Location = new System.Drawing.Point(537, 413);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 15);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Volume";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // MusicPlayer
             // 
@@ -122,6 +199,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.track_volume);
+            this.Controls.Add(this.btn_stop);
+            this.Controls.Add(this.btn_pause);
+            this.Controls.Add(this.btn_play);
+            this.Controls.Add(this.btn_next);
             this.Controls.Add(this.axWindowsMediaPlayerMusic);
             this.Controls.Add(this.ChooseMusic);
             this.Controls.Add(this.Music);
@@ -135,7 +218,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayerMusic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.track_volume)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -148,6 +233,12 @@
         private System.Windows.Forms.ListBox Music;
         private System.Windows.Forms.Button ChooseMusic;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayerMusic;
+        private System.Windows.Forms.Button btn_next;
+        private System.Windows.Forms.Button btn_play;
+        private System.Windows.Forms.Button btn_pause;
+        private System.Windows.Forms.Button btn_stop;
+        private System.Windows.Forms.TrackBar track_volume;
+        private System.Windows.Forms.Label label1;
     }
 }
 
